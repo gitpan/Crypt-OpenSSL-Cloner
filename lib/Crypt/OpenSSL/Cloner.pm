@@ -4,7 +4,7 @@ use warnings;
 use Crypt::OpenSSL::CA;
 use Crypt::OpenSSL::RSA;
 use File::Slurp qw(read_file write_file);
-use File::Path qw(make_path);
+use File::Path qw(mkpath);
 use Hash::Util qw(lock_keys);
 use Data::Dumper;
 use Time::HiRes;
@@ -17,7 +17,7 @@ use Crypt::OpenSSL::Cloner::x509asn1;
 our $PREFERRED_ALG = "sha1";
 our $PREFERRED_KEYLENGTH = 1024;
 our $CA_BASENAME = "CA";
-our $VERSION = 0.02;
+our $VERSION = 0.03;
 
 my $ASN = Convert::ASN1->new();
 $ASN->prepare($Crypt::OpenSSL::Cloner::x509asn1::ASN_DEF,
@@ -112,7 +112,7 @@ sub new {
         CN => 'CertOnTheFly Root' 
     };
     
-    make_path($path);
+    mkpath($path);
     $self->{PATH} = $path;
     
     my ($ca_obj,$privkey_obj);
