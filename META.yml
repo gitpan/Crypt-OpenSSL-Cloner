@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Crypt-OpenSSL-Cloner
-version:            0.03
+version:            0.04
 abstract:           Clone an existing certificate and sign it with your own
 author:
     - M. Nunberg <mnunberg@haskalah.org>
